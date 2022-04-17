@@ -6,7 +6,7 @@
   "Build project"
   (interactive)
   (if (file-exists-p "build.bat") (compile "build.bat")))
-(define-key global-map "\em" 'build)
+(define-key global-map (kbd "M-m") 'build)
 
 (defun cpp-style ()
   (c-set-offset 'case-label '+)
