@@ -24,3 +24,7 @@
 (load "highlight-indent-guides.el")
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
+
+; fill-column is a buffer-level variable, so setq-default is required here
+(setq-default fill-column 100)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
