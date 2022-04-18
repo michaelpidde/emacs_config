@@ -25,6 +25,14 @@
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
+(set-frame-font "Consolas 11" nil t)
+
 ; fill-column is a buffer-level variable, so setq-default is required here
 (setq-default fill-column 100)
-(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
+
+; do this just for C++ right now
+(defun kill-trailing-whitespace ()
+  (when (derived-mode-p 'c++-mode)
+    (delete-trailing-whitespace)))
+(add-hook 'before-save-hook 'kill-trailing-whitespace)
