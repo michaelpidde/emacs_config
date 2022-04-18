@@ -33,6 +33,6 @@
 
 ; do this just for C++ right now
 (defun kill-trailing-whitespace ()
-  (when (derived-mode-p 'c++-mode)
+  (when (or (derived-mode-p 'c++-mode) (derived-mode-p 'c-mode))
     (delete-trailing-whitespace)))
 (add-hook 'before-save-hook 'kill-trailing-whitespace)
